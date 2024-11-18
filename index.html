@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Ujian</title>
+    <script>
+        async function fetchData() {
+            const response = await fetch('http://localhost:8080/ujian');
+            const data = await response.json();
+            document.getElementById("output").innerHTML = `
+                <p>Nama: ${data.nama}</p>
+                <p>NIM: ${data.nim}</p>
+                <p>Nilai: ${data.nilai}</p>
+            `;
+        }
+        window.onload = fetchData;
+    </script>
+</head>
+<body>
+    <h1>Data Ujian</h1>
+    <div id="output"></div>
+</body>
+</html>
